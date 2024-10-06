@@ -3,14 +3,9 @@ required:
   - _id
   - name
   - phoneNumber
-  - isFavourite
   - contactType
   - userId
 properties:
-  _id:
-    description: "Contact's id"
-    type: string
-    example: 65e4decdd286b30065d54af9
   name:
     description: "Contact's name"
     type: string
@@ -24,17 +19,13 @@ properties:
     type: string
     enum: ['work', 'home', 'personal']
   isFavourite:
-    description: "Is it favourite contact's "
+    description: "Is it favourite contact's"
     type: boolean
     example: false
   email:
     description: 'Contact`s email'
     type: string
     example: user@mail.com
-  userId:
-    description: "Contact's user id"
-    type: string
-    example: 65e4decdd286b30065d54af9
   photo:
     description: "Link to contact's photo"
     type: string
