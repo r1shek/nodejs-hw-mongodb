@@ -159,15 +159,16 @@
         "tags": [
           "Contacts"
         ],
-        "summary": "Create contact",
+        "summary": "Create a contact",
         "operationId": "createContact",
-        "description": "Create a contact with the provided payload",
+        "description": "Create a new contact with the provided data",
         "security": [
           {
             "bearerAuth": []
           }
         ],
         "requestBody": {
+          "required": true,
           "content": {
             "multipart/form-data": {
               "schema": {
@@ -291,17 +292,16 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "ID of the contact to update",
             "schema": {
-              "type": "string",
-              "example": "65e4decdd286b30065d54af9"
-            }
+              "type": "string"
+            },
+            "description": "The ID of the contact to update"
           }
         ],
         "requestBody": {
           "required": true,
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
                 "$ref": "#/components/schemas/contact"
               }
@@ -418,16 +418,10 @@
           "_id",
           "name",
           "phoneNumber",
-          "isFavourite",
           "contactType",
           "userId"
         ],
         "properties": {
-          "_id": {
-            "description": "Contact's id",
-            "type": "string",
-            "example": "65e4decdd286b30065d54af9"
-          },
           "name": {
             "description": "Contact's name",
             "type": "string",
@@ -448,7 +442,7 @@
             ]
           },
           "isFavourite": {
-            "description": "Is it favourite contact's ",
+            "description": "Is it favourite contact's",
             "type": "boolean",
             "example": false
           },
@@ -456,11 +450,6 @@
             "description": "Contact`s email",
             "type": "string",
             "example": "user@mail.com"
-          },
-          "userId": {
-            "description": "Contact's user id",
-            "type": "string",
-            "example": "65e4decdd286b30065d54af9"
           },
           "photo": {
             "description": "Link to contact's photo",

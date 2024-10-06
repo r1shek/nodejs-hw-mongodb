@@ -1,11 +1,12 @@
 tags:
   - Contacts
-summary: Create contact
+summary: Create a contact
 operationId: createContact
-description: 'Create a contact with the provided payload'
+description: Create a new contact with the provided data
 security:
   - bearerAuth: []
 requestBody:
+  required: true
   content:
     multipart/form-data:
       schema:
