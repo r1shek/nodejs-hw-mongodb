@@ -70,10 +70,23 @@ export const updateContact = async (
 };
 
 export const deleteContact = async (contactId, userId) => {
+  console.log(
+    'Attempting to delete contact with ID:',
+    contactId,
+    'for user:',
+    userId,
+  );
+
   const contact = await ContactsCollection.findOneAndDelete({
     _id: contactId,
     userId,
   });
+
+  if (!contact) {
+    console.log('No contact found or it does not belong to the user');
+  } else {
+    console.log('Contact deleted successfully');
+  }
 
   return contact;
 };
